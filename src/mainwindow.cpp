@@ -16,8 +16,8 @@
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
 {
-    m_taskModel     = new TaskModel(this);
-    m_scheduleModel = new DailySchedule(this);
+    m_taskModel     = new TaskModel;
+    m_scheduleModel = new DailySchedule;
     setupUi();
 }
 
@@ -27,6 +27,8 @@ MainWindow::~MainWindow() {
         m_taskModel->saveToFile(m_configDir + "/tasks.json");
         m_scheduleModel->saveToFile(m_configDir + "/schedule.json");
     }
+    delete m_taskModel;
+    delete m_scheduleModel;
 }
 
 void MainWindow::loadConfig(const QString &configPath) {

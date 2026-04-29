@@ -2,51 +2,6 @@
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QFont>
-#include <QDrag>
-#include <QMimeData>
-#include <QMouseEvent>
-#include <QApplication>
-
-// ── 可拖拽的 ListWidget ─────────────────────────────────
-
-class DragListWidget : public QListWidget {
-public:
-    explicit DragListWidget(EisenhowerQuadrant quadrant, QWidget *parent = nullptr)
-        : QListWidget(parent), m_quadrant(quadrant)
-    {
-        setDragEnabled(true);
-        setAcceptDrops(true);
-        setDropIndicatorShown(true);
-        setDefaultDropAction(Qt::MoveAction);
-        setDragDropMode(QAbstractItemView::DragDrop);
-        setSelectionMode(QAbstractItemView::SingleSelection);
-        setFrameShape(QFrame::NoFrame);
-        setStyleSheet(
-            "QListWidget { background: transparent; border: 1px dashed #ccc; border-radius: 6px; padding: 4px; }"
-            "QListWidget::item { padding: 6px 8px; border-radius: 4px; margin: 2px; }"
-            "QListWidget::item:hover { background: rgba(255,255,255,0.1); }"
-        );
-    }
-
-    EisenhowerQuadrant quadrant() const { return m_quadrant; }
-
-protected:
-    void dropEvent(QDropEvent *event) override {
-        const QMimeData *mime = event->mimeData();
-        if (mime->hasFormat("application/x-eisenhower-task")) {
-            QByteArray data = mime->data("application/x-eisenhower-task");
-            QString taskId = QString::fromUtf8(data);
-            emit taskDropped(taskId, m_quadrant);
-        }
-        QListWidget::dropEvent(event);
-    }
-
-signals:
-    void taskDropped(const QString &taskId, EisenhowerQuadrant toQuadrant);
-
-private:
-    EisenhowerQuadrant m_quadrant;
-};
 
 // ── EisenhowerMatrix ─────────────────────────────────────
 
