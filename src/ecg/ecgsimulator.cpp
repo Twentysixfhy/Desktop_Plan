@@ -34,7 +34,7 @@ void EcgSimulator::emitNextSample() {
     double val = m_template[m_index];
 
     // 加一点随机噪声，更真实
-    val += QRandomGenerator::global()->bounded(-0.02, 0.02);
+    val += (QRandomGenerator::global()->generateDouble() - 0.5) * 0.04;
 
     emit sampleReady(val);
     m_index = (m_index + 1) % m_template.size();

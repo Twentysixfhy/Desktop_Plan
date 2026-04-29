@@ -3,6 +3,7 @@
 
 #include <QString>
 #include <QTime>
+#include <QColor>
 #include <QVector>
 #include <QJsonObject>
 #include <QJsonArray>

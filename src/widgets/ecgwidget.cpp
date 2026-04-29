@@ -2,6 +2,7 @@
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QPainter>
+#include <QPainterPath>
 #include <QPen>
 #include <QDateTime>
 #include <QtMath>
