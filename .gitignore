@@ -1,0 +1,26 @@
+# Build
+build/
+cmake-build-*/
+*.o
+*.obj
+*.exe
+*.app
+Makefile
+
+# IDE
+.vscode/
+.idea/
+*.user
+*.pro.user*
+CMakeUserPresets.json
+
+# Data (user-specific)
+data/
+*.json
+!config/config.json
+
+# Qt Creator
+*.autosave
+moc_*
+qrc_*
+ui_*

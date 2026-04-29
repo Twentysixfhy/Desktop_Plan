@@ -1,0 +1,23 @@
+{
+    "_comment": "DeskDashboard 配置文件",
+
+    "deepseek": {
+        "apiKey": "your-deepseek-api-key-here",
+        "apiUrl": "https://api.deepseek.com/user/balance"
+    },
+
+    "data": {
+        "tasks": "data/tasks.json",
+        "schedule": "data/schedule.json"
+    },
+
+    "ecg": {
+        "enabled": true,
+        "spiChannel": 0,
+        "sampleRate": 250
+    },
+
+    "display": {
+        "refreshIntervalSec": 300
+    }
+}
