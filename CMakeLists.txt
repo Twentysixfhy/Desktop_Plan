@@ -40,7 +40,6 @@ set(SOURCES
     src/core/taskmodel.cpp
     src/core/dailyschedule.cpp
     src/core/configmanager.cpp
-    src/ecg/ecgdatasource.cpp
     src/ecg/ecgsimulator.cpp
 )
 
